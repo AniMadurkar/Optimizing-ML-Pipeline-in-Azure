@@ -6,13 +6,10 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
-
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
-
+The dataset contains data about direct marketing campaigns (phone calls) from a Portugese banking institution. We will be using this dataset to determine the success of Bank Telemarketing, by seeking to predict whether the client will subscribe a term deposit (target variable y). The performance metric we were trying to optimize/maximize was accuracy, and based on this the best performing model was the AutoML Voting Ensemble model which yielded .917 accuracy in comparison to the top hyperdrive logistic regression model which yielded .909 accuracy. This is interesting as we only tune two hyperparameters for a relatively simple model (logistic regression) and the automl model only seemed to yield a marginal improvement. I would bet that with a more robust feature engineering that we could beat the best automl model. Additionally, accuracy is a pretty simplistic measure to assess model performance on, we should re-evaluate the use case to see if this makes the most sense.
 ## Scikit-learn Pipeline
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
-
+The pipeline architecture involves an SKLearn estimator that gets the output of a train.py file. This train.py file reads in bankmarketing dataset, conducts feature engineering through OneHotEncoding the categorical variables and preprocessing the dataset, and then splits the data into train/test splits of the features and target variable. The train.py file then takes the hyperparameter arguments passed in for C (the inverse of regularization strength) and max_iter (maximum iterations until convergence) and runs a Logistic Regression model. This model is scored for accuracy and then saved out to a file path.
 **What are the benefits of the parameter sampler you chose?**
 
 **What are the benefits of the early stopping policy you chose?**
