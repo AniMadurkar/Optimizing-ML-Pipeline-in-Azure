@@ -60,3 +60,5 @@ The AutoML VotingEnsemble model beats the Logistic Regression model by about .06
 
 ## Future work
 Even with the performance difference, this difference is small and that is likely because we don't have that many informative features & have class imbalance in the dataset. Feature engineering is bound to be able to extract the last bit of performance, and also handling the classification imbalance in the dataset. We don't have an equal, or relatively equal, number of values for our binary classification target values and this poses problem if we don't balance the dataset in the train.py file. Implementing SMOTE and creating stronger features is likely to improve performance quite a bit, and I would wager AutoML would outperform by a large margin after these improvements, especially because of the diversity and combination of the models leveraged.
+
+The compute cluster delete code is in the ipynb file.
